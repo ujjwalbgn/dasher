@@ -15,3 +15,8 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Budget(models.Model):
+    title = models.CharField(max_length=200, null=True)
+    date_created = models.DateField(auto_now_add=True)
