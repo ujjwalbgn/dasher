@@ -18,5 +18,10 @@ class Task(models.Model):
 
 
 class Budget(models.Model):
+    FIN_CHOICES = [('Income', 'Income'), ('Expenses', 'Expenses')]
+
     title = models.CharField(max_length=200, null=True)
     date_created = models.DateField(auto_now_add=True)
+    description = models.TextField(blank=True, null=True)
+    type = models.CharField(max_length=20, choices=FIN_CHOICES,null=True)
+    amount = models.DecimalField(blank=True, null=True,  max_digits=19, decimal_places=2)
