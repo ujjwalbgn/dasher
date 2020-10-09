@@ -128,7 +128,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "dasher/../DasherApp/templates/static"),
-    'healthcare/templates/static',
+    'DasherApp/templates/static',
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
