@@ -1,3 +1,13 @@
 <html>
 <h1>Home</h1>
+<body>
+{% for task in tasks %}
+{{ task }} <br/>
+
+{% endfor %}
+<hr>
+{% for budget in budgets %}
+{{ budget }}
+{% endfor %}
+</body>
 </html>

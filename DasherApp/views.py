@@ -3,11 +3,19 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
+from .models import *
+from .forms import *
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'DasherApp/home.html')
+
+    tasks  = Task.objects.all()
+    budgets = Budget.objects.all()
+
+    context = {'tasks':tasks,'budgets': budgets}
+
+    return render(request, 'DasherApp/main.html', context)
 
 def task(request):
     if request.method == 'GET':
