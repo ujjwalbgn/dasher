@@ -65,3 +65,18 @@ def allbudget(request):
             form.save()
             messages.success(request, 'Created')
             return redirect('home')
+
+def deleteTask(request,pk):
+    task = Task.objects.get(id = pk)
+
+    if request.method == "POST":
+        task.delete()
+        return redirect('home')
+
+
+def deleteBudget(request, pk):
+    budget = Budget.objects.get(id=pk)
+
+    if request.method == "POST":
+        budget.delete()
+        return redirect('home')

@@ -9,4 +9,6 @@ urlpatterns = [
     path('task/', views.allTask, name="allTask"),
     path('budget/', views.allbudget, name="allbudget"),
 
+    path('deleteTask/<str:pk>/', views.deleteTask, name="deleteTask"),
+    path('deleteBudget/<str:pk>/', views.deleteBudget, name="deleteBudget"),
 ]
