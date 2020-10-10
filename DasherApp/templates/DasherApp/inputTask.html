@@ -1,0 +1,5 @@
+<form method="POST" action="{% url 'allTask' %}">
+     {% csrf_token %}
+    {{taskForm }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

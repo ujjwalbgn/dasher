@@ -1,0 +1,13 @@
+
+<h1>All Task</h1>
+<body>
+{% for task in tasks %}
+    {{ task }} <br/>
+
+{% endfor %}
+
+<hr/>
+    {% include 'DasherApp/inputTask.html' %}
+
+</body>
+</html>
