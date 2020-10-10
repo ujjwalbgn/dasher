@@ -1,0 +1,35 @@
+{% load static %}
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="{% static '/assets/img/sidebar-1.jpg' %}">
+
+
+    <div class="logo">
+        <h4> <center>Dasher</center></h4>
+    </div>
+
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item active  ">
+                <a class="nav-link" href="/">
+                    <i class="material-icons">dashboard</i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <ul class="nav">
+                <li class="nav-item active  ">
+                    <a class="nav-link" href="/task/">
+                        <i class="material-icons">list</i>
+                        <p>New Task</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav">
+                <li class="nav-item active  ">
+                    <a class="nav-link" href="/budget/">
+                        <i class="material-icons">list</i>
+                        <p>Finance</p>
+                    </a>
+                </li>
+            </ul>
+
+    </div>
+</div>

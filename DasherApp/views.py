@@ -15,7 +15,7 @@ def home(request):
 
     context = {'tasks':tasks,'budgets': budgets}
 
-    return render(request, 'DasherApp/main.html', context)
+    return render(request, 'DasherApp/home.html', context)
 
 def allTask(request):
     # passing empty from
@@ -23,7 +23,7 @@ def allTask(request):
     if request.method == 'GET':
         tasks = Task.objects.all()
         context = {'tasks': tasks,'taskForm' : taskForm}
-        return render(request, 'DasherApp/allTask.html', context)
+        return render(request, 'DasherApp/newTask.html', context)
 
 
     # adding new task
@@ -32,8 +32,7 @@ def allTask(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Task Created')
-            return HttpResponseRedirect(request.path_info)
-        return render(request, 'DasherApp/allTask.html')
+            return redirect('home')
 
 def task(request,pk):
 
@@ -48,9 +47,21 @@ def task(request,pk):
 
 
 
-def budget(request):
+def allbudget(request):
+
+    budgetForm = BudgetForm()
+
     if request.method == 'GET':
-        return render(request, 'DasherApp/budget.html')
+
+        budgets = Budget.objects.all()
+
+        context = {'budgets': budgets, 'budgetForm': budgetForm}
+
+        return render(request, 'DasherApp/inputBudget.html', context)
 
     if request.method == 'POST':
-        return render(request, 'DasherApp/budget.html')
+        form = BudgetForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Created')
+            return redirect('home')

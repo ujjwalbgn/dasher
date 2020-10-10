@@ -1,0 +1,31 @@
+
+{% extends 'DasherApp/main.html' %}
+
+{% block content %}
+
+{#    {% load myfilters %}#}
+<div class="row">
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title">Finance</h4>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="{% url 'allbudget' %}">
+            {% csrf_token %}
+            {%  for field  in budgetForm %}
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-floating">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+{%  endblock %}

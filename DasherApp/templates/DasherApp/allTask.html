@@ -1,13 +1,108 @@
+{% load static %}
 
-<h1>All Task</h1>
-<body>
-{% for task in tasks %}
-    {{ task }} <br/>
-
-{% endfor %}
-
-<hr/>
-    {% include 'DasherApp/inputTask.html' %}
-
-</body>
-</html>
+<div class="card">
+                <div class="card-header card-header-tabs card-header-primary">
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                      <span class="nav-tabs-title">Tasks:</span>
+                      <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#High Priority" data-toggle="tab">
+                            <i class="material-icons">bug_report</i> High Priority
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#messages" data-toggle="tab">
+                            <i class="material-icons">code</i> Medium Priority
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#settings" data-toggle="tab">
+                            <i class="material-icons">cloud</i> Low Priority
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="High Priority">
+                      <table class="table">
+                        <tbody>
+                        {% for task in tasks %}
+                            {% if task.priority == 'High'  %}
+                          <tr>
+                            <td>
+                                {{ task.status  }}
+                            </td>
+                            <td>{{ task }}</td>
+                              <td>{{ task.assignto }}</td>
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="messages">
+                      <table class="table">
+                        <tbody>
+                        {% for task in tasks %}
+                            {% if task.priority == 'Medium'  %}
+                          <tr>
+                            <td>
+                                {{ task.status  }}
+                            </td>
+                            <td>{{ task }}</td>
+                              <td>{{ task.assignto }}</td>
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="settings">
+                      <table class="table">
+                        {% for task in tasks %}
+                            {% if task.priority == 'Low'  %}
+                          <tr>
+                            <td>
+                                {{ task.status  }}
+                            </td>
+                            <td>{{ task }}</td>
+                              <td>{{ task.assignto }}</td>
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+                            {% endif %}
+                        {% endfor %}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>

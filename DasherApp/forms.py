@@ -10,5 +10,5 @@ class TaskForm(ModelForm):
 
 class BudgetForm(ModelForm):
     class Meta:
-        model = Task
+        model = Budget
         fields = '__all__'
